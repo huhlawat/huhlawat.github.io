@@ -1,0 +1,6 @@
+name = "minimal"
+license = "MIT"
+description = "A minimal, typography-focused Hugo theme"
+
+[author]
+  name = "Himanshu Ahlawat"

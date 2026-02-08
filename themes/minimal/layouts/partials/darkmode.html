@@ -1,0 +1,26 @@
+<script>
+(function() {
+  const toggle = document.querySelector('.theme-toggle');
+  const html = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    html.setAttribute('data-theme', saved);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    html.setAttribute('data-theme', 'dark');
+  }
+  if (toggle) {
+    updateToggle();
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggle();
+    });
+  }
+  function updateToggle() {
+    if (toggle) toggle.textContent = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  }
+})();
+</script>

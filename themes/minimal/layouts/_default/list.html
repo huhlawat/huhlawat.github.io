@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="list-page">
+  {{ with .Content }}
+  <div class="list-intro">
+    {{ . }}
+  </div>
+  {{ end }}
+  {{ $pages := .Pages }}
+  {{ if $pages }}
+  <ul class="post-list">
+    {{ range $pages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ with .Description }}<span class="post-desc"> · {{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</section>
+{{ end }}

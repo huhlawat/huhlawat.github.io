@@ -1,0 +1,9 @@
+<header class="site-header">
+  <nav>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+      {{ if not (eq .URL "/") }} · {{ end }}<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+     · <a href="#" class="theme-toggle">dark</a>
+  </nav>
+</header>
